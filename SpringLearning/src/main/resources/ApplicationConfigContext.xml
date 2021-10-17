@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+     <bean id="hwcdao" class="demo.UserDaoimpl" scope="singleton"></bean>
+     <bean id="hwcdao1" class="demo.UserDaoimpl" scope="prototype" init-method="init" destroy-method="destroy"></bean>
+
+<!--     静态工厂创建 -->
+     <bean id="hwcdao2" class="factory.StaticFactory" scope="prototype" factory-method="getUserDao"></bean>
+
+<!--     实例工厂创建 -->
+     <bean id="factory" class="factory.DynamicFactory "></bean>
+     <bean id="hwcdao3" factory-bean="factory" factory-method="getUserDao"></bean>
+
+
+
+<!--     依赖注入 通过set方法-->
+     <bean id="userservice" class="services.UserServicesimp" scope="singleton">
+          <property name="userDao" ref="hwcdao"></property>
+     </bean>
+
+
+<!-- &lt;!&ndash;    依赖注入 通过 p(set的升级版)&ndash;&gt;-->
+<!--     <bean id="userservice" class="services.UserServicesimp" scope="singleton" p:userDao-ref="hwcdao" >-->
+
+
+<!--     </bean>-->
+<!--&lt;!&ndash;     依赖注入 通过有参构造方法&ndash;&gt;-->
+<!--     <bean id="userservice" class="services.UserServicesimp" scope="singleton"  >-->
+<!--      <constructor-arg name="xx" ref="hwcdao"> </constructor-arg>-->
+<!--     </bean>-->
+
+<!--     基本数据类型的注入-->
+
+     <bean id="BasicType" class="Injection_Of_Other_DataTypes.BasicDataType" scope="singleton">
+           <property name="username" value="hwc"></property>
+           <property name="age" value="20"></property>
+     </bean>
+
+<!--    引用数据类型的的注入-->
+
+<!--    创建user的两个对象分别为 adminuser和adminuser1 -->
+     <bean id="adminuser" class="Injection_Of_Other_DataTypes.admin.User" scope="prototype">
+
+               <property name="id" value="123"></property>
+               <property name="name" value="huang弟弟"></property>
+
+          </bean>
+
+     <bean id="adminuser1" class="Injection_Of_Other_DataTypes.admin.User" scope="prototype">
+
+          <property name="id" value="124"></property>
+          <property name="name" value="huang哥哥"></property>
+
+     </bean>
+
+
+     <bean id="ReferenceType" class="Injection_Of_Other_DataTypes.ReferenceDataType" scope="singleton">
+<!--          配置list的-->
+          <property name="list">
+
+               <list>
+                    <value>aaa</value>
+                    <value>bbb</value>
+                    <value>ccc</value>
+               </list>
+          </property>
+
+<!--          map类型-->
+          <property name="map" >
+               <map>
+     <!--          如果数据类型为基本数据类型或String 则用key，若为其他类型则用key-ref -->
+                    <entry key="user" value-ref="adminuser"></entry>
+                    <entry key="user1" value-ref="adminuser1"></entry>
+               </map>
+          </property>
+
+<!--        Properties   -->
+          <property name="properties">
+
+               <props>
+                    <prop key="p1">pp1</prop>
+                    <prop key="p2">pp2</prop>
+                    <prop key="p3">pp3</prop>
+
+               </props>
+
+          </property>
+
+     </bean>
+
+</beans>
+
