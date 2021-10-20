@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SpringLearning/SpringLearning.iml" filepath="$PROJECT_DIR$/SpringLearning/SpringLearning.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpringLearning/SpringMVCLearning/SpringMVCLearning.iml" filepath="$PROJECT_DIR$/SpringLearning/SpringMVCLearning/SpringMVCLearning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringLearning/Spring_Annotation/Spring_Annotation.iml" filepath="$PROJECT_DIR$/SpringLearning/Spring_Annotation/Spring_Annotation.iml" />
     </modules>
   </component>
 </project>
