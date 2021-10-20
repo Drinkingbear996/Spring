@@ -2,6 +2,7 @@ import demo.UserDao;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 import services.UserService;
 
 public class Springtt {
@@ -47,9 +48,16 @@ public class Springtt {
         System.out.println("============================");
 
 
-        //从 UserServices的实现类在调用 UserDao的save() 方法，再从Spring 容器中获得 UserService 进行操作、
-       ApplicationContext app4=new ClassPathXmlApplicationContext("ApplicationConfigContext.xml");
+            //从 UserServices的实现类在调用 UserDao的save() 方法，再从Spring 容器中获得 UserService 进行操作、
+            //在resource下的类加载文件
+            ApplicationContext app4=new ClassPathXmlApplicationContext("ApplicationConfigContext.xml");
             UserService use=( UserService)app4.getBean("userservice");
             use.save();
+
+            //文件磁盘加载文件，xml文件的绝对路径
+            ApplicationContext appF=new FileSystemXmlApplicationContext("/Users/pioneerrr/IdeaProjects/demo_mAven/Spring/SpringLearning/src/main/resources/ApplicationConfigContext.xml");
+            UserService useF=(UserService)appF.getBean("userservice");
+            useF.save();
+
     }
 }

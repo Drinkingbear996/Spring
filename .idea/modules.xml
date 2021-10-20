@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SpringLearning/SpringLearning.iml" filepath="$PROJECT_DIR$/SpringLearning/SpringLearning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringLearning/SpringMVCLearning/SpringMVCLearning.iml" filepath="$PROJECT_DIR$/SpringLearning/SpringMVCLearning/SpringMVCLearning.iml" />
     </modules>
   </component>
 </project>
