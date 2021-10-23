@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation=
+        "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:jdbc.properties"></context:property-placeholder>
 
 
 <!--    导包 -->
-    <bean id="datasource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+    <bean id="datasource"  class="com.mchange.v2.c3p0.ComboPooledDataSource">
 
-        <property name="DriverClass" value="com.mysql.jdbc.driver"></property>
-        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/mysql"></property>
-        <property name="User" value="root"></property>
-        <property name="Password" value="12345678"></property>
+        <property name="DriverClass" value="${jdbc.driver}"></property>
+        <property name="jdbcUrl" value="${jdbc.url}"></property>
+        <property name="User" value="${jdbc.username}"></property>
+        <property name="Password" value="${jdbc.password}"></property>
     </bean>
 
+
+<!--    <bean id="UserDao" class="hwc.dao.UserDaoImpl"></bean>-->
+
+<!--    <bean id="UserService" class="hwc.service.UserServiceImpl">-->
+
+<!--        <property name="userDao" ref="UserDao"> </property>-->
+
+<!--    </bean>-->
+
+<!--    component-scan会扫描包以及子包中所有的注解-->
+    <context:component-scan base-package="hwc"></context:component-scan>
 
 </beans>
