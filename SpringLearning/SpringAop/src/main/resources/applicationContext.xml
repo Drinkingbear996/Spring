@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+
+
+
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop.xsd
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    目标对象 被增强的目标-->
+    <bean id="target" class="com.aopimplment.Target"></bean>
+<!--    切面对象  增强的方法-->
+    <bean id="myaspect" class="com.aopimplment.MyAspect"></bean>
+
+<!-- 告诉spring框架，哪些方法（切点）需要在哪些位置增强（前置，后置。。）-->
+   <aop:config>
+<!--       申明切面（增强类）-->
+       <aop:aspect ref="myaspect">
+           <!--         切面=切点＋通知 -->
+                <!-- before 通知，表示在源代码的主干之前  method：为切点  增强类内部的before方法-->
+                                             <!-- pointcut                                表示哪个方法被增强              -->
+<!--                 <aop:before method="before" pointcut="execution(public * com.aopimplment.*.*(..))"></aop:before>-->
+           <aop:before method="before" pointcut="execution(public * com.aopimplment.*.*(..))"></aop:before>
+           <aop:around method="around" pointcut="execution(public * com.aopimplment.*.*(..))"></aop:around>
+           <aop:after-throwing method="MyAspectException" pointcut="execution(public * com.aopimplment.*.*(..))"></aop:after-throwing>
+           <aop:after method="finallyRunning"  pointcut="execution(public * com.aopimplment.*.*(..))"></aop:after>
+
+<!--           抽取切点表达式 多了个ID ，将pointcut="execution(public * com.aopimplment.*.*(..))"抽出出来  -->
+           <aop:pointcut id="mypointcut" expression="execution(public * com.aopimplment.*.*(..))"></aop:pointcut>
+
+           <aop:around method="around" pointcut-ref="mypointcut"></aop:around>
+           <aop:after method="finallyRunning" pointcut-ref="mypointcut"></aop:after>
+           <aop:before method="before" pointcut-ref="mypointcut"></aop:before>
+
+       </aop:aspect>
+
+
+   </aop:config>
+
+
+</beans>
