@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SpringAop" />
+        <module name="SpringTempLate" />
         <module name="SpringMVCLearning" />
         <module name="Spring_Annotation" />
       </profile>
@@ -16,6 +17,9 @@
       <module name="SpringAop" target="8" />
       <module name="SpringLearning" target="1.8" />
       <module name="SpringMVCLearning" target="8" />
+      <module name="SpringTempLate" target="8" />
+      <module name="SpringTemplateTest" target="1.8" />
+      <module name="SpringTemplateTesting" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -3,8 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SpringLearning/SpringAop/SpringAop.iml" filepath="$PROJECT_DIR$/SpringLearning/SpringAop/SpringAop.iml" />
-      <module fileurl="file://$PROJECT_DIR$/SpringLearning/SpringLearning.iml" filepath="$PROJECT_DIR$/SpringLearning/SpringLearning.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpringLearning/SpringMVCLearning/SpringMVCLearning.iml" filepath="$PROJECT_DIR$/SpringLearning/SpringMVCLearning/SpringMVCLearning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringLearning/SpringTempLate/SpringTempLate.iml" filepath="$PROJECT_DIR$/SpringLearning/SpringTempLate/SpringTempLate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringLearning/SpringTemplate.iml" filepath="$PROJECT_DIR$/SpringLearning/SpringTemplate.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringLearning/SpringTemplateTest.iml" filepath="$PROJECT_DIR$/SpringLearning/SpringTemplateTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpringLearning/Spring_Annotation/Spring_Annotation.iml" filepath="$PROJECT_DIR$/SpringLearning/Spring_Annotation/Spring_Annotation.iml" />
     </modules>
   </component>
